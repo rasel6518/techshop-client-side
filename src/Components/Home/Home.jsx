@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 
 
@@ -14,10 +14,14 @@ const Home = () => {
                     brands?.map(brand =>
                     (<div key={brand.id}>
 
-                        <div className="w-full h-40 m-5">
-                            <img className="w-full h-full" src={brand.image_url} alt="" />
-                            <p className="text-center font-serif font-extrabold text-3xl">{brand.name}</p>
-                        </div>
+                        <Link to={`/${brand.name.toLowerCase()}`}>
+
+                            <div className="w-full h-40 m-5">
+                                <img className="w-full h-full" src={brand.image_url} alt="" />
+                                <p className="text-center font-serif font-extrabold text-3xl">{brand.name}</p>
+                            </div>
+
+                        </Link>
 
                     </div>)
 

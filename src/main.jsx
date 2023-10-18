@@ -15,11 +15,16 @@ import Contact from './Components/Contact/Contact';
 import MyCart from './Components/MyCart/MyCart';
 import AddProduct from './Components/AddProduct/AddProduct';
 import SignIn from './Components/SignIn/SignIn';
+import Apple from './Components/Apple/Apple';
+import Sony from './Components/Sony/Sony';
+import ErrorPage from './ErrorPage/ErrorPage';
+import Samsung from './Components/Samsung/Samsung';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -45,6 +50,21 @@ const router = createBrowserRouter([
       {
         path: "/addproduct",
         element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "/apple",
+        element: <Apple></Apple>,
+        // loader: () => fetch('brands.json')
+      },
+      {
+        path: "/sony",
+        element: <Sony></Sony>,
+        // loader: () => fetch('brands.json')
+      },
+      {
+        path: "/samsung",
+        element: <Samsung></Samsung>,
+        // loader: () => fetch('brands.json')
       },
     ],
   },

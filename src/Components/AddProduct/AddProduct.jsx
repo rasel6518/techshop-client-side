@@ -60,7 +60,7 @@ const AddProduct = () => {
                             <label className="text-black " htmlFor="password">Type</label>
                             <select
                                 name="type"
-                                className="block w-full px-4 py-2 mt-2 rounded-md   focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                                className="block w-full px-4 bg-white py-2 mt-2 rounded-md   focus:border-blue-500  focus:outline-none focus:ring"
                                 id="type"
                                 defaultValue="Pick Your Product Type"
                             >

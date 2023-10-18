@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <>
-            <footer className="footer p-10 bg-base-300 text-base-content">
+            <footer className="footer text-black text-xl font-semibold p-10 text-center bg-secColor ">
                 <nav>
                     <header className="footer-title">Services</header>
                     <a className="link link-hover">Tech Conference</a>
@@ -15,9 +15,9 @@ const Footer = () => {
                 <nav>
                     <header className="footer-title">Quick Links</header>
                     <Link to='/'>Home</Link>
-                    <Link to='/blog'>Blog</Link>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
+                    <Link to='/mycart'>My cart</Link>
+                    <Link to='/signin'>Sign In</Link>
+                    <Link to='/signup'>Sign Up</Link>
 
                 </nav>
                 <nav>

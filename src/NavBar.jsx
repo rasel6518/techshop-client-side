@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from '../src/assets/logo.png'
 import { AiOutlineCloseCircle, AiOutlineMenu } from 'react-icons/ai';
 import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme")
+
+        document.querySelector("html").setAttribute("data-theme", localTheme)
+
+    }, [theme])
+
+    const handletoggle = (e) => {
+        if (e.target.checked) {
+            setTheme("dark")
+        } else {
+            setTheme("light")
+        }
+    }
+
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const handleToggleMenu = () => {
@@ -32,11 +51,7 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "active btn text-white hover:bg-thirColor bg-priColor  mr-5 text-lg font-medium " : "mr-5 text-lg font-medium "
             }
         >ADD PRODUCT</NavLink></li>
-        {/* <li><NavLink to='/addproduct'
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active btn text-white hover:bg-thirColor bg-priColor  mr-5 text-lg font-medium " : "mr-5 text-lg font-medium "
-            }
-        >CONTACT</NavLink></li> */}
+
 
     </>
 
@@ -57,7 +72,16 @@ const Navbar = () => {
                         <img src={logo} alt="" className="w-[170px] h-[80px]" />
                     </a>
 
-                    <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
+                    <div className="flex items-center gap-3">
+                        <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
+                        <input type="checkbox" onChange={handletoggle}
+
+                            checked={theme === "light" ? false : true}
+                            className="toggle" />
+
+                    </div>
+
+
 
 
 
@@ -67,7 +91,12 @@ const Navbar = () => {
                     </ul>
 
 
+
                 </nav>
+
+
+
+
                 <div className={`navbar-menu w-[450px] duration-1000 top-0 left-0 h-[100vh] md:hidden absolute transition-all z-50 ${isMenuOpen ? 'translate-x-0' : '-translate-x-[1000px]'}`}>
 
                     <nav className="fixed   top-0 left-0 bottom-0 flex  flex-col w-5/6 max-w-sm py-6 px-6  bg-white border-r overflow-y-auto">
@@ -78,6 +107,8 @@ const Navbar = () => {
                     <div className="navbar-backdrop top-2 right-20  fixed " onClick={handleToggleMenu}> <AiOutlineCloseCircle className="text-3xl text-red-500"></AiOutlineCloseCircle> </div>
 
                 </div>
+
+
             </div>
         </div>
     );
