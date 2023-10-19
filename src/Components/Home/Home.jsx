@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import NewProducts from "./NewProducts";
+import BestSeller from "./BestSeller";
 
 
 const Home = () => {
@@ -31,6 +32,8 @@ const Home = () => {
             </div>
 
             <NewProducts></NewProducts>
+
+            <BestSeller></BestSeller>
 
         </div>
     );

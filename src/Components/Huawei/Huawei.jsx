@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import { MdStarRate } from 'react-icons/md';
 import Ads from "../Ads/Ads";
@@ -29,7 +29,10 @@ const Huawei = () => {
 
                                 <div className="card-actions justify-between">
                                     <button className="btn bg-priColor text-white hover:bg-thirColor">Details</button>
-                                    <button className="btn bg-priColor text-white hover:bg-thirColor">Update</button>
+                                    <Link to={`/updateproduct/${product._id}`}>
+                                        <button className="btn bg-priColor text-white hover:bg-thirColor">Update</button>
+
+                                    </Link>
                                 </div>
                             </div>
                         </div>

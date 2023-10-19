@@ -22,6 +22,8 @@ import Samsung from './Components/Samsung/Samsung';
 import Huawei from './Components/Huawei/Huawei';
 import Realme from './Components/Realme/Realme';
 import Google from './Components/Google/Google';
+import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
+import DetailsProduct from './Components/DetailsProduct/DetailsProduct';
 
 const router = createBrowserRouter([
   {
@@ -83,6 +85,16 @@ const router = createBrowserRouter([
         path: "/huawei",
         element: <Huawei></Huawei>,
         loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/updateproduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
+      },
+      {
+        path: "/detailsproduct/:id",
+        element: <DetailsProduct></DetailsProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
       },
     ],
   },

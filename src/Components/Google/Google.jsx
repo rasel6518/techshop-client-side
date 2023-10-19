@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { MdStarRate } from 'react-icons/md';
 import Ads from "../Ads/Ads";
@@ -20,7 +20,7 @@ const Google = () => {
 
 
                 {googleProducts?.map(product => (
-                    <div key={product.id}>
+                    <div key={product._id}>
                         <div className="card md:w-[560px] card-side text-black bg-secColor p-5 shadow-xl">
                             <div className='flex-1 mx-auto my-auto'>
                                 <img src={product.photo} alt="Movie" />
@@ -34,7 +34,10 @@ const Google = () => {
 
                                 <div className="card-actions justify-between">
                                     <button className="btn bg-priColor text-white hover:bg-thirColor">Details</button>
-                                    <button className="btn bg-priColor text-white hover:bg-thirColor">Update</button>
+                                    <Link to={`/updateproduct/${product._id}`}>
+                                        <button className="btn bg-priColor text-white hover:bg-thirColor">Update</button>
+
+                                    </Link>
                                 </div>
                             </div>
                         </div>
