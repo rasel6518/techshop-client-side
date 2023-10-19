@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
 
@@ -15,29 +15,32 @@ const AddProduct = () => {
 
         const newProduct = { name, brand, type, description, photo, rating, price };
         console.log(newProduct);
-        // fetch('http://localhost:5000/coffee', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newCoffee)
+        fetch('http://localhost:5000/brands', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
 
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Added New coffee ',
-        //                 showClass: {
-        //                     popup: 'animate__animated animate__fadeInDown'
-        //                 },
-        //                 hideClass: {
-        //                     popup: 'animate__animated animate__fadeOutUp'
-        //                 }
-        //             })
-        //         }
-        //     })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Added New Product ',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })
+                }
+
+            })
+
+
     }
 
     return (
@@ -100,7 +103,7 @@ const AddProduct = () => {
                     </div>
 
                     <div className="flex justify-end mt-6">
-                        <button className="px-6 py-2 w-full leading-5 text-white transition-colors duration-200 transform bg-priColor rounded-md hover:bg-thirColor focus:outline-none focus:bg-gray-600">Add New Product</button>
+                        <button className="px-6 py-2 w-full  text-white transition-colors duration-200 transform bg-priColor rounded-md hover:bg-thirColor focus:outline-none focus:bg-gray-600">Add New Product</button>
                     </div>
                 </form>
             </section>

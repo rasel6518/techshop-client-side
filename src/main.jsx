@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         path: "/apple",
         element: <Apple></Apple>,
-        // loader: () => fetch('brands.json')
+        loader: () => fetch('http://localhost:5000/brands')
       },
       {
         path: "/sony",
