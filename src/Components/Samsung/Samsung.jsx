@@ -18,7 +18,7 @@ const Samsung = () => {
 
             {samsungProducts?.map(product => (
                 <div key={product.id}>
-                    <div className="card w-[560px] card-side text-black bg-secColor p-5 shadow-xl">
+                    <div className="card md:w-[560px] card-side text-black bg-secColor p-5 shadow-xl">
                         <div className='flex-1 mx-auto my-auto'>
                             <img src={product.photo} alt="Movie" />
                         </div>

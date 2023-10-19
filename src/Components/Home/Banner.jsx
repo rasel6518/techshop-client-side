@@ -15,16 +15,16 @@ const Banner = () => {
     };
 
     return (
-        <div >
-            <Slider className=" mx-auto h-[80vh] " {...settings}>
+        <div className="w-full" >
+            <Slider className=" mx-auto  h-[80vh] " {...settings}>
                 <div>
-                    <img className="w-full h-[80vh]" src="https://i.ibb.co/XDKNX14/sony-vector-logo.jpg" alt="Slide 1" />
+                    <img className="w-full h-[75vh]" src="https://i.ibb.co/5nW2kcp/samsung-for-slider.png" alt="Slide 1" />
                 </div>
                 <div>
-                    <img className="w-full h-[80vh]" src="https://i.ibb.co/t4fyR31/Free-Vector-Intel-Logo.jpg" alt="Slide 2" />
+                    <img className="w-full h-[75vh]" src="https://i.ibb.co/XYt2LTx/realme-for-slider.png" alt="Slide 2" />
                 </div>
                 <div>
-                    <img className=" w-full h-[80vh]" src="https://i.ibb.co/gWwPx8Z/Apple.jpg" alt="Slide 3" />
+                    <img className=" w-full h-[75vh]" src="https://i.ibb.co/DwStRFR/20230704-1688464611-563256.png" alt="Slide 3" />
                 </div>
             </Slider>
         </div>

@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { MdStarRate } from 'react-icons/md';
+import Ads from "../Ads/Ads";
 
 const Google = () => {
 
@@ -9,6 +10,8 @@ const Google = () => {
 
     return (
         <div>
+            <Ads></Ads>
+
             <div className='grid md:grid-cols-2 gap-10 mx-auto w-9/12 '>
 
 
@@ -18,7 +21,7 @@ const Google = () => {
 
                 {googleProducts?.map(product => (
                     <div key={product.id}>
-                        <div className="card w-[560px] card-side text-black bg-secColor p-5 shadow-xl">
+                        <div className="card md:w-[560px] card-side text-black bg-secColor p-5 shadow-xl">
                             <div className='flex-1 mx-auto my-auto'>
                                 <img src={product.photo} alt="Movie" />
                             </div>
