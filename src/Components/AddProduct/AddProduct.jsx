@@ -72,8 +72,11 @@ const AddProduct = () => {
                                 </option>
                                 <option value="phone">phone</option>
                                 <option value="computer">computer</option>
+                                <option value="smart watch">camera</option>
                                 <option value="headphone">headphone</option>
                                 <option value="smart watch">smart watch</option>
+                                <option value="smart watch">other</option>
+
 
                             </select>
                         </div>

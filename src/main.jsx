@@ -19,6 +19,9 @@ import Apple from './Components/Apple/Apple';
 import Sony from './Components/Sony/Sony';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Samsung from './Components/Samsung/Samsung';
+import Huawei from './Components/Huawei/Huawei';
+import Realme from './Components/Realme/Realme';
+import Google from './Components/Google/Google';
 
 const router = createBrowserRouter([
   {
@@ -59,12 +62,27 @@ const router = createBrowserRouter([
       {
         path: "/sony",
         element: <Sony></Sony>,
-        // loader: () => fetch('brands.json')
+        loader: () => fetch('http://localhost:5000/brands')
       },
       {
         path: "/samsung",
         element: <Samsung></Samsung>,
-        // loader: () => fetch('brands.json')
+        loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/google",
+        element: <Google></Google>,
+        loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/realme",
+        element: <Realme></Realme>,
+        loader: () => fetch('http://localhost:5000/brands')
+      },
+      {
+        path: "/huawei",
+        element: <Huawei></Huawei>,
+        loader: () => fetch('http://localhost:5000/brands')
       },
     ],
   },

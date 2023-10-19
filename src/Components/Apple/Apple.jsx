@@ -1,19 +1,20 @@
 
+import { AiFillApple } from 'react-icons/ai';
+import { MdStarRate } from 'react-icons/md';
 
 
-// import { useParams } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 
 const Apple = () => {
     // const { id } = useParams();
     const brands = useLoaderData();
-    const appleProducts = brands.filter(brand => brand.brand.toLowerCase() == 'apple');
+    const appleProducts = brands?.filter(brand => brand.brand.toLowerCase() == 'apple');
     // const brand = brands.find(brand => brand.id === id);
 
-    // if (!brand) {
-    //     // Handle case where brand is not found
-    //     return <div>Brand not found</div>;
-    // }
+    if (!appleProducts) {
+
+        return <div className='text-black'>Apple Products not found</div>;
+    }
 
     console.log(brands, appleProducts);
 
@@ -32,11 +33,11 @@ const Apple = () => {
                             <img src={product.photo} alt="Movie" />
                         </div>
                         <div className="card-body flex-1">
-                            <p>{product.brand}</p>
+                            <p className='flex items-center gap-2'> <AiFillApple></AiFillApple> {product.brand}</p>
                             <h2 className="card-title w-full h-full ">{product.name}</h2>
-                            <p>{product.type}</p>
-                            <p>{product.price}</p>
-                            <p>{product.rating}</p>
+                            <p className='text-sm'>{product.type}</p>
+                            <p> <span className='text-black font-medium'>Price:</span> {product.price}</p>
+                            <p className='flex items-center gap-2'>  <MdStarRate></MdStarRate>{product.rating}</p>
 
                             <div className="card-actions justify-between">
                                 <button className="btn bg-priColor text-white hover:bg-thirColor">Details</button>

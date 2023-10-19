@@ -21,12 +21,12 @@
     },
     {
         "id": 5,
-        "name": "Intel",
-        "image_url": "https://i.ibb.co/t4fyR31/Free-Vector-Intel-Logo.jpg"
+        "name": "Realme",
+        "image_url": "https://i.ibb.co/KX3BfBB/1200px-Realme-realme-logo.png"
     },
     {
         "id": 6,
-        "name": "Microsoft",
-        "image_url": "https://i.ibb.co/z8rzST8/vecteezy-microsoft-logo-icon-editorial-vector-6892683.jpg"
+        "name": "Huawei",
+        "image_url": "https://i.ibb.co/N9pnVCs/Huawei-Logo.png"
     }
 ]
