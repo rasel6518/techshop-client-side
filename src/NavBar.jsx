@@ -1,10 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from '../src/assets/logo.png'
 import { AiOutlineCloseCircle, AiOutlineMenu } from 'react-icons/ai';
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, LogOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        LogOut()
+            .then()
+            .catch()
+    }
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
 
@@ -73,7 +81,11 @@ const Navbar = () => {
                     </a>
 
                     <div className="flex items-center gap-3">
-                        <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
+
+                        {
+                            user ? <Link to='/signin' onClick={handleSignOut} className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN OUT</Link> : <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
+                        }
+
                         <input type="checkbox" onChange={handletoggle}
 
                             checked={theme === "light" ? false : true}

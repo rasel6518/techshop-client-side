@@ -6,11 +6,14 @@ const Footer = () => {
         <>
             <footer className="footer text-black text-xl font-semibold p-10 text-center bg-secColor ">
                 <nav>
-                    <header className="footer-title">Services</header>
-                    <a className="link link-hover">Tech Conference</a>
-                    <a className="link link-hover">Gaming Convention</a>
-                    <a className="link link-hover">Hackathon</a>
-                    <a className="link link-hover">VR Gaming Expo</a>
+                    <header className="footer-title">Our Brands</header>
+
+                    <Link to='/apple'> Apple</Link>
+                    <Link to='/samsung'> Samsung</Link>
+                    <Link to='/sony'> Sony</Link>
+                    <Link to='/google'> Google</Link>
+                    <Link to='/huawei'> Huawei</Link>
+                    <Link to='/realme'> Realme</Link>
                 </nav>
                 <nav>
                     <header className="footer-title">Quick Links</header>

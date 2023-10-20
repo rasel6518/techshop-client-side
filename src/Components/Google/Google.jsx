@@ -33,7 +33,9 @@ const Google = () => {
                                 <p className='flex items-center gap-2'>  <MdStarRate></MdStarRate>{product.rating}</p>
 
                                 <div className="card-actions justify-between">
-                                    <button className="btn bg-priColor text-white hover:bg-thirColor">Details</button>
+                                    <Link to={`/detailsproduct/${product._id}`}>
+                                        <button className="btn bg-priColor text-white hover:bg-thirColor">Details</button>
+                                    </Link>
                                     <Link to={`/updateproduct/${product._id}`}>
                                         <button className="btn bg-priColor text-white hover:bg-thirColor">Update</button>
 

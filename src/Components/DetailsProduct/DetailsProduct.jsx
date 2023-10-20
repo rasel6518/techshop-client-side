@@ -27,8 +27,8 @@ const DetailsProduct = () => {
 
     return (
         <div>
-            <div className="card my-10 w-9/12 mx-auto  bg-base-100 shadow-xl">
-                <figure><img src={brands.photo} alt="Shoes" className="h-[600px] w-[800px]" /></figure>
+            <div className="card my-10 w-9/12 mx-auto text-black  bg-secColor p-5 shadow-xl">
+                <figure><img src={brands.photo} alt="Shoes" className="md:h-[600px] md:w-[650px]" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{brands.brand} {brands.name}</h2>
                     <p className='flex items-center gap-2'>  <MdStarRate></MdStarRate>{brands.rating}</p>

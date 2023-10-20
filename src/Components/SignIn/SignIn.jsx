@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignIn = () => {
+    const { signIn } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleSignin = e => {
         e.preventDefault()
@@ -11,37 +19,35 @@ const SignIn = () => {
         const password = form.get('password')
         console.log(email, password)
 
-        // logIn(email, password)
-        //     .then(result => {
+        signIn(email, password)
+            .then(result => {
+
+
+                navigate(location?.state ? location.state : '/')
+                toast.success('Signin  Successful');
 
 
 
+            })
+            .catch(err => {
 
-        //         navigate(location?.state ? location.state : '/')
-        //         toast.success('Login  Successful');
+                const errorCode = err.code;
 
+                if (errorCode === 'auth/wrong-password') {
+                    toast.error('Password is incorrect. Please try again.')
 
+                } else if (errorCode === 'auth/user-not-found') {
+                    toast.error('No user found with this email. Please check your email and try again.')
 
-        //     })
-        //     .catch(err => {
+                } else if (errorCode === 'auth/invalid-Signin-credentials') {
+                    toast.error('Invalid Signin information')
 
-        //         const errorCode = err.code;
+                }
 
-        //         if (errorCode === 'auth/wrong-password') {
-        //             toast.error('Password is incorrect. Please try again.')
-
-        //         } else if (errorCode === 'auth/user-not-found') {
-        //             toast.error('No user found with this email. Please check your email and try again.')
-
-        //         } else if (errorCode === 'auth/invalid-login-credentials') {
-        //             toast.error('Invalid login information')
-
-        //         }
-
-        //         else {
-        //             toast.error('Login failed. Please try again.')
-        //         }
-        //     })
+                else {
+                    toast.error('Signin failed. Please try again.')
+                }
+            })
         e.currentTarget.reset()
 
     }
@@ -58,7 +64,7 @@ const SignIn = () => {
 
 
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <h1 className="text-center text-xl font-semibold mt-5">Login your account</h1>
+                            <h1 className="text-center text-xl font-semibold mt-5">Signin your account</h1>
                             <form onSubmit={handleSignin} className="card-body">
                                 <div className="form-control">
 
@@ -66,26 +72,27 @@ const SignIn = () => {
                                 </div>
                                 <div className="form-control">
 
-                                    <input type="password" name="Enter password" placeholder="Password" className="input input-bordered" required />
+                                    <input type="password" name="password" placeholder="Enter Password" className="input input-bordered" required />
 
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn hover:bg-thirColor  bg-priColor text-white">Login</button>
+                                    <button className="btn hover:bg-thirColor  bg-priColor text-white">Signin</button>
                                 </div>
                             </form>
 
-                            <p className="text-center  font-bold mb-5">OR </p>
 
-                            {/* <div className=" form-control text-center px-9 ">
-                            <button onClick={handleGoogleLogIn} className="btn bg-black text-white hover:bg-gray-700 "><FaGoogle></FaGoogle> Login With Google</button>
-                        </div> */}
                             <div className=" mb-5 text-center p-3">
                                 Do Not Have An Account ? <Link className="text-blue-400 font-medium" to='/signup'> Sign Up</Link>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <ToastContainer position="top-center"
+
+
+            </div>
+
+
+            <ToastContainer position="top-center"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -96,9 +103,7 @@ const SignIn = () => {
                 pauseOnHover
                 theme="light">
 
-            </ToastContainer> */}
-
-            </div>
+            </ToastContainer>
         </div>
     );
 };

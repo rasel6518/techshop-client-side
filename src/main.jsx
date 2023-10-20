@@ -24,6 +24,8 @@ import Realme from './Components/Realme/Realme';
 import Google from './Components/Google/Google';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 import DetailsProduct from './Components/DetailsProduct/DetailsProduct';
+import AuthProvider from './AuthProvider/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -50,11 +52,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/mycart",
-        element: <MyCart></MyCart>,
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
       },
       {
         path: "/addproduct",
-        element: <AddProduct></AddProduct>,
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
       },
       {
         path: "/apple",
@@ -88,12 +90,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateproduct/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PrivateRoute> <UpdateProduct></UpdateProduct></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
       },
       {
         path: "/detailsproduct/:id",
-        element: <DetailsProduct></DetailsProduct>,
+        element: <PrivateRoute><DetailsProduct></DetailsProduct></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
       },
     ],
@@ -102,6 +104,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
