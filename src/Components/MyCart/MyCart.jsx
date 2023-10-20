@@ -38,7 +38,9 @@ const MyCart = () => {
                                 'Your product has been removed.',
                                 'success'
                             )
+                            const remaining = cart.filter(c => c._id !== _id)
 
+                            setCart(remaining)
 
                         }
                     })
