@@ -83,7 +83,18 @@ const Navbar = () => {
                     <div className="flex items-center gap-3">
 
                         {
-                            user ? <Link to='/signin' onClick={handleSignOut} className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN OUT</Link> : <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
+                            user ? <li>
+                                {user.displayName && user.photoURL ? <span className="">
+                                    <div className="flex items-center gap-1 ">
+                                        <p className="text-sm font-medium  text-slate-600 ">{user.displayName}</p>
+                                        <img src={user.photoURL} className="w-[40px] h-[40px] rounded-full mb-4" alt="" />
+                                    </div>
+                                </span> : ''}
+                            </li> : ''
+                        }
+
+                        {
+                            user ? <Link to='/signin' onClick={handleSignOut} className="btn hover:bg-thirColor bg-priColor text-white   ">SIGN OUT</Link> : <Link to='/signin' className="btn hover:bg-thirColor bg-priColor text-white  ml-14 ">SIGN IN</Link>
                         }
 
                         <input type="checkbox" onChange={handletoggle}

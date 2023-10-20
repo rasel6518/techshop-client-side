@@ -13,7 +13,6 @@ const Huawei = () => {
             <div className='grid md:grid-cols-2 gap-10 mx-auto w-9/12 '>
 
 
-
                 {huaweiProducts?.map(product => (
                     <div key={product.id}>
                         <div className="card md:w-[560px] card-side text-black bg-secColor p-5 shadow-xl">

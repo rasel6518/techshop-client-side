@@ -50,16 +50,19 @@ const SignUp = () => {
 
         CreateUser(email, password)
             .then((result) => {
-                const SignUpUser = result.user;
+                const signUpUser = result.user;
 
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photourl,
                 })
-                    .then(() => console.log("Update Profile"))
+                    .then(() => {
+
+                        console.log('update profile');
+                    })
                     .catch((err) => console.log(err.message));
 
-                navigate("/signin");
+                navigate(location?.state ? location.state : '/')
             })
             .catch((err) => {
                 const errorCode = err.code;

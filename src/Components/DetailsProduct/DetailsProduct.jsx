@@ -1,29 +1,39 @@
 // import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { MdStarRate } from "react-icons/md";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const DetailsProduct = () => {
+    const { user } = useContext(AuthContext)
+
+    console.log();
+
+
     const { id } = useParams()
     const brands = useLoaderData()
-    // const [brand, setBrand] = useState({})
 
-    // console.log(brands);
+    console.log(brands);
 
+    const handleAddToCart = () => {
 
+        fetch('http://localhost:5000/cartItems', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ...brands, userEmail: user.email }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Product added to cart:', data);
+            })
+            .catch(error => {
+                console.error('Error adding product to cart:', error);
+            });
+    };
 
-
-
-    // useEffect(() => {
-
-    //     if (brands && Array.isArray(brands)) {
-    //         const findBrand = brands.find(brnd => brnd._id == id);
-    //         setBrand(findBrand);
-    //     }
-
-    // }
-
-    //     , [id, brands])
 
     return (
         <div>
@@ -35,8 +45,8 @@ const DetailsProduct = () => {
                     <p className="text-lg font-medium"> <span className=" font-medium text-xl text-black">Price:</span>{brands.price}</p>
                     <p>{brands.description}</p>
                     <div className="card-actions ">
-                        <Link to='/mycart'>
-                            <button className="btn bg-priColor hover:bg-thirColor text-white"> Add Cart</button>
+                        <Link>
+                            <button onClick={handleAddToCart} className="btn  bg-priColor hover:bg-thirColor text-white"> Add Cart</button>
                         </Link>
                     </div>
 
