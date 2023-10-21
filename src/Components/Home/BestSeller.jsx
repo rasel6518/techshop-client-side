@@ -4,7 +4,7 @@ const BestSeller = () => {
     const [bestseller, setBestseller] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/bestSellers')
+        fetch('https://brands-prouduct-server.vercel.app/bestSellers')
             .then(res => res.json())
             .then(data => setBestseller(data))
     }, [])

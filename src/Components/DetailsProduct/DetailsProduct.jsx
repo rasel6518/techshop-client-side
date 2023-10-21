@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { MdStarRate } from "react-icons/md";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const DetailsProduct = () => {
@@ -18,7 +19,7 @@ const DetailsProduct = () => {
 
     const handleAddToCart = () => {
 
-        fetch('http://localhost:5000/cartItems', {
+        fetch('https://brands-prouduct-server.vercel.app/cartItems', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,6 +29,12 @@ const DetailsProduct = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Product added to cart:', data);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'successfully',
+                    text: 'Product successfully added to the cart!',
+
+                })
             })
             .catch(error => {
                 console.error('Error adding product to cart:', error);

@@ -7,17 +7,23 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Ads from '../Ads/Ads';
 
 const Apple = () => {
-    // const { id } = useParams();
+
     const brands = useLoaderData();
     const appleProducts = brands?.filter(brand => brand.brand.toLowerCase() == 'apple');
-    // const brand = brands.find(brand => brand.id === id);
 
-    if (!appleProducts) {
 
-        return <div className='text-black'>Apple Products not found</div>;
+    if (!appleProducts || appleProducts.length === 0) {
+        return (
+            <div>
+                <Ads />
+                <p className="text-center text-xl font-semibold mt-5">
+                    No  Apple products available.
+                </p>
+            </div>
+        );
     }
 
-    console.log(brands, appleProducts);
+
 
     return (
         <div className="">

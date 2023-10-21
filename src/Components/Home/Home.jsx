@@ -7,14 +7,14 @@ import BestSeller from "./BestSeller";
 const Home = () => {
 
     const brands = useLoaderData()
-    console.log(brands)
+
     return (
         <div className="w-9/12 mx-auto">
             <Banner></Banner>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 my-10 gap-5  ">
                 {
                     brands?.map(brand =>
-                    (<div key={brand.id}>
+                    (<div key={brand._id}>
 
                         <Link to={`/${brand.name.toLowerCase()}`}>
 

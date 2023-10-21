@@ -6,13 +6,13 @@ const NewProducts = () => {
     const [newProducts, setNewProducts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/newProducts')
+        fetch('https://brands-prouduct-server.vercel.app/newProducts')
             .then(res => res.json())
             .then(data => setNewProducts(data))
     }, [])
 
 
-    console.log(newProducts);
+
 
     return (
         <div className="mx-auto ">

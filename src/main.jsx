@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/brandname')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brandname')
       },
       {
         path: "/signin",
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/mycart",
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/cartItems')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/cartItems')
       },
       {
         path: "/addproduct",
@@ -62,42 +62,42 @@ const router = createBrowserRouter([
       {
         path: "/apple",
         element: <Apple></Apple>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/sony",
         element: <Sony></Sony>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/samsung",
         element: <Samsung></Samsung>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/google",
         element: <Google></Google>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/realme",
         element: <Realme></Realme>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/huawei",
         element: <Huawei></Huawei>,
-        loader: () => fetch('http://localhost:5000/brands')
+        loader: () => fetch('https://brands-prouduct-server.vercel.app/brands')
       },
       {
         path: "/updateproduct/:id",
         element: <PrivateRoute> <UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
+        loader: ({ params }) => fetch(`https://brands-prouduct-server.vercel.app/brands/${params.id}`)
       },
       {
         path: "/detailsproduct/:id",
         element: <PrivateRoute><DetailsProduct></DetailsProduct></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/brands/${params.id}`)
+        loader: ({ params }) => fetch(`https://brands-prouduct-server.vercel.app/brands/${params.id}`)
       },
     ],
   },

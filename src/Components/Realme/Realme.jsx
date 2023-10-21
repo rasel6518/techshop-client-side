@@ -7,6 +7,18 @@ const Realme = () => {
     const brands = useLoaderData();
     const realmeProducts = brands?.filter(brand => brand.brand.toLowerCase() == 'realme');
 
+    if (!realmeProducts || realmeProducts.length === 0) {
+        return (
+            <div>
+                <Ads />
+                <p className="text-center text-xl font-semibold mt-5">
+                    No Realme products available.
+                </p>
+            </div>
+        );
+    }
+
+
     return (
         <div>
 

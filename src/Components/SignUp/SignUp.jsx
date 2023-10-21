@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
 
 
-    const { CreateUser } = useContext(AuthContext)
+    const { CreateUser, LogOut } = useContext(AuthContext)
     const navigate = useNavigate();
 
 
@@ -62,7 +62,9 @@ const SignUp = () => {
                     })
                     .catch((err) => console.log(err.message));
 
-                navigate(location?.state ? location.state : '/')
+                LogOut()
+
+                navigate(location?.state ? location.state : '/signin')
             })
             .catch((err) => {
                 const errorCode = err.code;

@@ -6,6 +6,20 @@ import Ads from "../Ads/Ads";
 const Huawei = () => {
     const brands = useLoaderData();
     const huaweiProducts = brands?.filter(brand => brand.brand.toLowerCase() == 'huawei');
+
+
+    if (!huaweiProducts || huaweiProducts.length === 0) {
+        return (
+            <div>
+                <Ads />
+                <p className="text-center text-xl font-semibold mt-5">
+                    No Huawei products available.
+                </p>
+            </div>
+        );
+    }
+
+
     return (
         <div>
 
